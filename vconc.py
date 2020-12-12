@@ -1,3 +1,5 @@
+#dovadă că nu-s pleavă
+
 def vconcat_resize(img_list, interpolation=cv2.INTER_CUBIC): 
       # take minimum width 
     w_max = max(img.shape[1] for img in img_list) 
