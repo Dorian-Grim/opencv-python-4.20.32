@@ -16,6 +16,6 @@ def vconcat_resize(img_list, interpolation=cv2.INTER_CUBIC):
     # return final image 
     return cv2.vconcat(im_list_rewrite)
 
-x = [file if file.endswith(".png") else 0 for file in os.listdir()]
+x = [cv2.imread(file) if file.endswith(".png") else 0 for file in os.listdir()]
 while 0 in x: x.remove(0)
 vconcat_resize(x)
