@@ -1,7 +1,7 @@
 #dovadă că nu-s pleavă
 import os, cv2, glob  #opencv-python==4.2.0.34
 from pprint import pprint
-def vconcat_resize(img_list, interpolation=cv2.INTER_CUBIC): 
+def vconcat_resize(img_list,interpolation=cv2.INTER_CUBIC): 
       # take minimum width 
     padding = 15
     
@@ -16,7 +16,7 @@ def vconcat_resize(img_list, interpolation=cv2.INTER_CUBIC):
     w_max = max(img.shape[1] for img in img_list_with_emoji) + padding    
     r = cv2.vconcat([cv2.copyMakeBorder(img, 8, 8, padding, padding if img.shape[1] == w_max else w_max - img.shape[1], cv2.BORDER_CONSTANT, value=[255,255,255]) for img in img_list_with_emoji])
     return r
-def hconcat_resize(img_list,interpolation= cv2.INTER_CUBIC): 
+def hconcat_resize(img_list,interpolation=cv2.INTER_CUBIC): 
     # take minimum hights 
     h_min = min(img.shape[0] for img in img_list) 
       
