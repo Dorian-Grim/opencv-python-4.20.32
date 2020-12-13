@@ -19,12 +19,8 @@ def vconcat_resize(img_list,interpolation=cv2.INTER_CUBIC):
 def hconcat_resize(img_list,interpolation=cv2.INTER_CUBIC): 
     # take minimum hights 
     h_min = min(img.shape[0] for img in img_list) 
-      
-    # image resizing  
-    im_list_resize = [cv2.resize(img,(int(img.shape[1] * h_min / img.shape[0]),h_min), interpolation= interpolation)for img in img_list] 
-      
     # return final image 
-    return cv2.hconcat(im_list_resize) 
+    return cv2.hconcat([cv2.resize(img,(int(img.shape[1] * h_min / img.shape[0]),h_min), interpolation= interpolation) for img in img_list]) 
 final = 'final.png'
 try: os.remove(final) 
 except: pass
